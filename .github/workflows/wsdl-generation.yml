@@ -30,11 +30,9 @@ jobs:
           git commit -m "Regenerate based on updated WSDL"
           git push origin $branch_name
 
-          echo "'" > body.json
-          echo -n '{"title": "Regenerate for updated WSDL", "head": "' >> body.json
+          echo -n '{"title": "Regenerate for updated WSDL", "head": "' > body.json
           echo -n $branch_name >> body.json
           echo '", "base": "master", "body": "FlightAware published an updated WSDL. This regenerates our code based upon updated definitions"}' >> body.json
-          echo "'" >> body.json
 
           cat body.json
 
