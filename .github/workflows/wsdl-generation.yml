@@ -21,7 +21,7 @@ jobs:
         rake -f Rakefile flightxml:generate
     - name: Create Pull Request
       run: |
-        if git diff-index --quiet HEAD --; then
+        if [ ! -z "$(git status --porcelain)" ]; then
           branch_name="`date "+%Y-%m-%d"`-wsdl-update"
           git checkout -b $branch_name
           git add .
