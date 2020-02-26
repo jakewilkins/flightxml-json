@@ -11,7 +11,10 @@ namespace :flightxml do
 
     v2_generator = Flightxml::Json::Generator.new(version: 2)
     v2_generator.run
-    require 'pry'; binding.pry
+
+    if ENV['DEBUG']
+      require 'pry'; binding.pry
+    end
   end
 end
 
