@@ -1,4 +1,4 @@
-name: Gen
+name: Regenerate from WSDL
 
 # on:
 #   schedule:
@@ -14,7 +14,7 @@ jobs:
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
-        version: '2.6'
+        ruby-version: '2.6'
         architecture: 'x64'
     - name: Run tests
       run: |
@@ -24,7 +24,7 @@ jobs:
           branch_name="`date "+%Y-%m-%d"`-wsdl-update"
           git checkout -b $branch_name
           git add .
-          git commit -m "Regenerate based on updated WSDL"
+          git commit -m "Regenerate based on updated WSDL" --author "Jake Wilkins <jake@tolerable.tech>"
           git push origin $branch_name
 
           curl --request POST\
