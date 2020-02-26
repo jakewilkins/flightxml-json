@@ -1,8 +1,9 @@
-name: WSDL Generation
+name: Gen
 
-on:
-  schedule:
-    - cron:  '0 4 * * *'
+# on:
+#   schedule:
+#     - cron:  '0 4 * * *'
+on: [push]
 
 jobs:
   build:
