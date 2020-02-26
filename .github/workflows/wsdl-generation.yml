@@ -30,14 +30,12 @@ jobs:
           git commit -m "Regenerate based on updated WSDL"
           git push origin $branch_name
 
+          data='\'"title": "Regenerate for updated WSDL", "head": "BRANCH_NAME", "base": "master", "body": "FlightAware published an updated WSDL. This regenerates our code based upon updated definitions"\''
+          data=`echo $data | sed "s/BRANCH_NAME/$branch_name/"`
+
           curl --request POST\
             --url https://api.github.com/repos/jakewilkins/flightxml-json/pulls\
             --header "authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
             --header 'content-type: application/json' \
-            --data '{
-              "title": "Regenerate for updated WSDL",
-              "head": "$branch_name",
-              "base": "master",
-              "body": "FlightAware published an updated WSDL. This regenerates our code based upon updated definitions"
-            }'
+            --data $data
         fi
