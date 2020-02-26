@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+#
+# This file was generated via `rake flightxml:generate`
+#
+# Any changes made here will be overwritten.
+#
+
+module Flightxml
+  module V<%= @version %>
+    module Operations
+<% @operation_definitions.each do |operation| %><% operation[:name].gsub(/\B[A-Z]/, '_\&').squeeze("_") =~ /_*(.*)/; name = $+.downcase; spec = @request_classes["#{operation[:in]}Request"] %>
+      def <%= name %>(<%= spec[:attributes].map { |attr| "#{attr[:name]}:#{attr[:required] ? "" : " nil"}" }.join(", ")%>)
+        command = Command.new(
+          command: :<%= operation[:in] %>,
+          result: Types::<%= operation[:out] %>,
+          version: <%= @version %>,
+          parameters: {<%= spec[:attributes].map { |attr| "#{attr[:name]}: #{attr[:name]}" }.join(", ") %>}
+        )
+        perform_operation(command)
+      end
+<% end %>
+    end
+  end
+end

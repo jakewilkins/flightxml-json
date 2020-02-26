@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+#
+# This file was generated via `rake flightxml:generate`
+#
+# Any changes made here will be overwritten.
+#
+
+require_relative "../basic_object"
+
+module Flightxml
+  module V<%= @version %>
+    module Types
+<% @type_definitions.each do |type_info| %>
+      class <%= type_info[:name] %>
+        include Flightxml::BasicObject
+
+        self.attributes = [<% type_info[:attributes].each do |attr| %>
+          {name: :<%= attr[:name] %>, required: <%= attr[:required] %>, array: <%= attr[:array] %>, type: :<%= attr[:type] %>}, <% end %>
+        ]
+      end
+<% end %>
+    end
+  end
+end
