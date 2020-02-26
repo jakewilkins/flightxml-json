@@ -16,15 +16,18 @@ jobs:
       with:
         ruby-version: '2.6'
         architecture: 'x64'
-    - name: Run tests
+    - name: Regenerate files
       run: |
         rake -f Rakefile flightxml:generate
-
+    - name: Create Pull Request
+      run: |
         if git diff-index --quiet HEAD --; then
           branch_name="`date "+%Y-%m-%d"`-wsdl-update"
           git checkout -b $branch_name
           git add .
-          git commit -m "Regenerate based on updated WSDL" --author "Jake Wilkins <jake@tolerable.tech>"
+          git config user.email jake@tolerable.tech
+          git config user.name Jake Wilkins
+          git commit -m "Regenerate based on updated WSDL"
           git push origin $branch_name
 
           curl --request POST\
