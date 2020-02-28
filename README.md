@@ -1,8 +1,9 @@
-# Flightxml3::Json
+# Flightxml::Json
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/flightxml3/json`. To experiment with that code, run `bin/console` for an interactive prompt.
+Flightxml::Json provides access to both FlightXML2 and FlightXML3 data via the JSON API.
 
-TODO: Delete this and the text above, and describe your gem
+The main interface is generated based on the definitions published in the WSDL
+for the SOAP service, and generation is performed nightly via GitHub Actions.
 
 ## Installation
 
@@ -22,13 +23,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can initialize a Client for V2 or V3 via:
 
-## Development
+```ruby
+Flightxml::Client.new(username: "yourusername", token: "yourtoken", version: 3)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+The `version` keywarg is optional and defaults to version three.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+The methods available to each version are most easily found in `lib/flightxml/{v2,v3}/commands.rb`.
+
+Documentation pull requests are most welcome.
 
 ## Contributing
 
