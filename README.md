@@ -31,9 +31,11 @@ Flightxml::Client.new(username: "yourusername", token: "yourtoken", version: 3)
 
 The `version` keywarg is optional and defaults to version three.
 
-The methods available to each version are most easily found in `lib/flightxml/{v2,v3}/commands.rb`.
+The methods available to each version are most easily found in the docs for
+[version 2](https://www.rubydoc.info/github/jakewilkins/flightxml-json/master/Flightxml/V2/Operations) or
+[version 3](https://www.rubydoc.info/github/jakewilkins/flightxml-json/master/Flightxml/V3/Operations)
 
-Documentation pull requests are most welcome.
+Full generated documentation is available on [rubydoc.info](https://www.rubydoc.info/github/jakewilkins/flightxml-json/master).
 
 ## Contributing
 
