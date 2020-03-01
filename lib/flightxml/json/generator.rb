@@ -118,6 +118,14 @@ module Flightxml
         md5.update(body)
         md5.hexdigest
       end
+
+      def operation_url(operation)
+        if @version == 3
+          "https://flightaware.com/commercial/flightxml/v3/apiref.rvt#op_#{operation}"
+        else
+          "http://flightxml.flightaware.com/soap/FlightXML2/doc#op_#{operation}"
+        end
+      end
     end
   end
 end
