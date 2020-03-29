@@ -10,7 +10,7 @@ for the SOAP service, and generation is performed nightly via GitHub Actions.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'flightxml3-json'
+gem 'flightxml-json'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install flightxml3-json
+    $ gem install flightxml-json
 
 ## Usage
 
@@ -39,7 +39,7 @@ Full generated documentation is available on [rubydoc.info](https://www.rubydoc.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jakewilkins/flightxml3-json. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jakewilkins/flightxml-json. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
